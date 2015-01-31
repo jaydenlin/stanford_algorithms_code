@@ -1,0 +1,23 @@
+{
+  "name": "stanford_algorithms_code",
+  "version": "1.0.0",
+  "description": "homework for stanford algorithms class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaydenlin/stanford_algorithms_code.git"
+  },
+  "keywords": [
+    "stanford",
+    "algorithms"
+  ],
+  "author": "jaydenlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaydenlin/stanford_algorithms_code/issues"
+  },
+  "homepage": "https://github.com/jaydenlin/stanford_algorithms_code"
+}

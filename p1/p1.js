@@ -74,9 +74,6 @@ var inversionCounter = function (array, p, r) {
         inversionCountOfHighHalf=inversionCounter(array, q + 1, r);
         inversionCountOfAll=merge(array,p,q,r)+inversionCountOfLowHalf+inversionCountOfHighHalf;
 
-        //inversionCountOfAll=inversionCountOfAll+inversionCountOfLowHalf+inversionCountOfHighHalf;
-        console.log(inversionCountOfAll);
-        //console.log(inversionCountOfAll);
     }
     
     return inversionCountOfAll; 

@@ -34,10 +34,12 @@ var merge = function (array, p, q, r) {
         } else {
             
             //add inversion counts
-            //if (array[k] !== highHalf[j]) {
-                inversionCount=inversionCount+lowHalf.length-i;
-            //}
-
+            //when highHalf is bigger than lowHalf
+            //the inversions are the rest of the lowFalf
+            //(so the count is lowFalf length minus the lowFalf current index)
+            inversionCount=inversionCount+(lowHalf.length-i);
+            
+            
             array[k] = highHalf[j];
             j++;
         }

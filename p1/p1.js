@@ -1,5 +1,5 @@
 var fs=require('fs');
-
+var q=require('q');
 var merge = function (array, p, q, r) {
     var lowHalf = [];
     var highHalf = [];
@@ -34,9 +34,9 @@ var merge = function (array, p, q, r) {
         } else {
             
             //add inversion counts
-            if (array[k] !== highHalf[j]) {
-                inversionCount++;
-            }
+            //if (array[k] !== highHalf[j]) {
+                inversionCount=inversionCount+lowHalf.length-i;
+            //}
 
             array[k] = highHalf[j];
             j++;
@@ -83,42 +83,24 @@ var inversionCounter = function (array, p, r) {
 };
 
 
-var readLines=function (input, func) {
-  var remaining = '';
-
-  input.on('data', function(data) {
-    remaining += data;
-    var index = remaining.indexOf('\n');
-    while (index > -1) {
-      var line = remaining.substring(0, index);
-      remaining = remaining.substring(index + 1);
-      func(line);
-      index = remaining.indexOf('\n');
-    }
-  });
-
-  input.on('end', function() {
-    if (remaining.length > 0) {
-      func(remaining);
-    }
-  });
-}
 
 
 //add real data
 
-var input = fs.createReadStream('integerArray.txt');
-var testData=[];
-readLines(input,function(data){
-    console.log(testData);
-    testData.push(parseInt(data,10));
-    
+var lines = fs.readFileSync('integerArray.txt', 'utf8').split('\n');
+var testData = [];
+for (var l in lines){
+    var line = lines[l];
+    console.log(line);
+    //if((line)!==0){
+        testData.push(line*1);
+    //}
+}
+    console.log(testData);  
+    console.log(testData.length);
     var count=inversionCounter(testData,0,testData.length-1);
-
     console.log("inversion count is:"+count);
-    
 
-});
 
 
 

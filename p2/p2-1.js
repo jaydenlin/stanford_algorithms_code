@@ -1,4 +1,4 @@
-
+var fs=require('fs');
 var arrayData=[];
 //always choose first element as pivot
 var partition=function(arrayData,p,r){
@@ -22,7 +22,7 @@ var partition=function(arrayData,p,r){
       }
 
     }
-    //put pivot into right place
+    //put pivot into middle place
     var tmp=arrayData[i];
     arrayData[i]=arrayData[p];
     arrayData[p]=tmp;
@@ -38,9 +38,17 @@ var quicksort=function(arrayData,p,r){
       quicksort(arrayData,p,q-1);
       quicksort(arrayData,q+1,r);
     }
-    console.log(arrayData);
+    return arrayData;
 };
 
-quicksort([5,6,1,8,2,7,3],0,6);
-
+var lines = fs.readFileSync('QuickSort.txt', 'utf8').split('\n');
+var testData = [];
+for (var l in lines){
+      var line = lines[l];
+      //console.log(line);
+      testData.push(line*1);
+}
+//console.log(testData.length);
+var a=quicksort(testData,0,testData.length-1);
+console.log(a);
 

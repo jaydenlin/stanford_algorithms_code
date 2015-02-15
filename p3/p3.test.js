@@ -130,7 +130,7 @@ var min = null;
 ///////////////////////
 
 var listSize = Object.keys(adjList).length;
-var i = 100000000;
+var i = 10000;
 console.log(i);
 while (i >= 0) {
     adjList=getAdjList();
